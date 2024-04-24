@@ -1,40 +1,92 @@
 import React from 'react'
 
-const Login = () => {
+const Register = () => {
   return (
     <div>
 
-<div class="relative py-3 mt-5 sm:max-w-xl sm:mx-auto">
+<div class="relative py-3 sm:max-w-xl sm:mx-auto">
   <div
     class="relative px-4 py-10 bg-white mx-8 md:mx-0 shadow rounded-3xl sm:p-10"
   >
-    <div class="max-w-md  text-center justify-center mx-auto">
-      <div class="mt-5 grid grid-cols-1 justify-center text-center sm:grid-cols-2 gap-5">
+    <div class="max-w-md mx-auto">
+      <div class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
           <label
-            class="font-semibold text-center text-sm text-gray-600 pb-1 block"
+            class="font-semibold text-sm text-gray-600 pb-1 block"
+            for="fullname"
+            >Full Name</label
+          >
+          <input
+            class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+            type="text"
+            id="fullname"
+          />
+        </div>
+        <div>
+          <label
+            class="font-semibold text-sm text-gray-600 pb-1 block"
+            for="email"
+            >Email</label
+          >
+          <input
+            class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+            type="email"
+            id="email"
+          />
+        </div>
+        <div>
+          <label
+            class="font-semibold text-sm text-gray-600 pb-1 block"
             for="username"
             >Username</label
           >
           <input
-            class="border rounded-lg px-3  text-center py-2 mt-1 mb-5 text-sm w-full focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+            class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
             type="text"
             id="username"
           />
         </div>
         <div>
           <label
-            class="font-semibold text-center text-sm text-gray-600 pb-1 block"
+            class="font-semibold text-sm text-gray-600 pb-1 block"
             for="password"
             >Password</label
           >
           <input
-            class="border rounded-lg px-3 text-center py-2 mt-1 mb-5 text-sm w-full focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+            class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
             type="password"
             id="password"
           />
         </div>
       </div>
+      <div class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div>
+          <label
+            class="font-semibold text-sm text-gray-600 pb-1 block"
+            for="dob"
+            >Date of Birth</label
+          >
+          <input
+            class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+            type="date"
+            id="dob"
+          />
+        </div>
+        <div>
+          <label
+            class="font-semibold text-sm text-gray-600 pb-1 block"
+            for="gender"
+            >Gender</label
+          >
+          <select
+            class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+            id="gender"
+          >
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
       </div>
       <div class="flex justify-center items-center">
         <div>
@@ -133,7 +185,7 @@ const Login = () => {
           class="py-2 px-4 bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
           type="submit"
         >
-          Login
+          Register
         </button>
       </div>
       <div class="flex items-center justify-between mt-4">
@@ -141,7 +193,7 @@ const Login = () => {
         <a
           class="text-xs text-gray-500 uppercase dark:text-gray-400 hover:underline"
           href="#"
-          >Don't have an account? Register</a
+          >have an account? Log in</a
         >
         <span class="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span>
       </div>
@@ -149,8 +201,8 @@ const Login = () => {
   </div>
 </div>
 
-   
+    </div>
   )
 }
 
-export default Login
+export default Register
