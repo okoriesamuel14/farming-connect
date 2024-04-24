@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Login = () => {
   return (
@@ -6,7 +7,7 @@ const Login = () => {
 
 <div class="relative py-3 mt-5 sm:max-w-xl sm:mx-auto">
   <div
-    class="relative px-4 py-10 bg-white mx-8 md:mx-0 shadow rounded-3xl sm:p-10"
+    class="relative px-4 py-10 bg-green-500 mx-8 md:mx-0 shadow rounded-3xl sm:p-10"
   >
     <div class="max-w-md  text-center justify-center mx-auto">
       <div class="mt-5 grid grid-cols-1 justify-center text-center sm:grid-cols-2 gap-5">
@@ -130,7 +131,7 @@ const Login = () => {
       </div>
       <div class="mt-5">
         <button
-          class="py-2 px-4 bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
+          class="py-2 px-4 bg-green-900 hover:bg-green-200 hover:text-black focus:ring-blue-500 focus:ring-offset-blue-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
           type="submit"
         >
           Login
@@ -138,11 +139,10 @@ const Login = () => {
       </div>
       <div class="flex items-center justify-between mt-4">
         <span class="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span>
-        <a
+        <Link to={'/register'}
           class="text-xs text-gray-500 uppercase dark:text-gray-400 hover:underline"
           href="#"
-          >Don't have an account? Register</a
-        >
+          >Don't have an account? Register</Link>
         <span class="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span>
       </div>
     </div>
