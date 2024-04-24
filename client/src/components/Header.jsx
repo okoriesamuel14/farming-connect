@@ -7,10 +7,10 @@ const Header = () => {
       <nav className="container mx-auto flex justify-between items-center">
         <h1 className="text-white text-2xl font-bold">Farming Connect</h1>
         <ul className="flex space-x-4">
-          <li><a href="/" className="text-white">Home</a></li>
-          <li><a href="/about" className="text-white">About</a></li>
-          <li><a href="/updates" className="text-white">Updates</a></li>
-          <li><a href="/contact" className="text-white">Contact</a></li>
+          <li><Link to={'/home'} className="text-white">Home</Link></li>
+          <li><Link to={'/about'} className="text-white">About</Link></li>
+          <li><Link to={'/updates'} className="text-white">Updates</Link></li>
+          <li><Link to={'/contact'} className="text-white">Contact</Link></li>
           <li><Link to={'/register'}className="text-white">Register</Link></li>
           <li><Link to={'/login'} className="text-white">Login</Link></li>
         </ul>
