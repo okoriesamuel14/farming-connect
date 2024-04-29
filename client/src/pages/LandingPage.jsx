@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import farm from '../assets/FarmConnect.png';
+import api from '../utils/api';
 
 const LandingPage = () => {
+  const Navigate = useNavigate()
+  useEffect(() => {
+    document.title = 'Farming Connect';
+    const details = localStorage.getItem('userdetails')
+    console.log(details);
+    if (details) {
+      Navigate('/posts');
+    }
+  }, []);
+  
   return (
       <div className="landing-page">
         <Header/>

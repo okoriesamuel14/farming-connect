@@ -1,26 +1,65 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import api from '../utils/api'
+
 
 const Login = () => {
+
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [loading, setLoading]= useState(false)
+
+  const Navigate = useNavigate()
+  useEffect(() => {
+    document.title = 'Login';
+    const details = localStorage.getItem('userdetails')
+    console.log(details);
+    if (details) {
+      Navigate('/posts');
+    }
+  }, []);
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()  
+    setLoading(true);
+    try {
+      const response = await api.post("api/users/auth", {
+        email,
+        password
+      });
+      console.log(response);
+      setLoading(false);
+      Navigate('/');
+    } catch(error) {
+      console.log(error);
+      setLoading(false);
+      // setErrors(error.response.data); // You need to define setErrors state variable
+    }
+  };
+
   return (
     <div>
 
 <div class="relative py-3 mt-5 sm:max-w-xl sm:mx-auto">
-  <div
+  <form
     class="relative px-4 py-10 bg-green-500 mx-8 md:mx-0 shadow rounded-3xl sm:p-10"
+    onSubmit={handleSubmit}
   >
     <div class="max-w-md  text-center justify-center mx-auto">
       <div class="mt-5 grid grid-cols-1 justify-center text-center sm:grid-cols-2 gap-5">
         <div>
           <label
             class="font-semibold text-center text-sm text-gray-600 pb-1 block"
-            for="username"
-            >Username</label>
+            htmlFor="email"
+            >Email</label>
           <input
+            value={email}
+            onChange={(e)=>{setEmail(e.target.value)}}
             class="border rounded-lg px-3  text-center py-2 mt-1 mb-5 text-sm w-full focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
-            type="text"
-            id="username"
-          />
+            type="email"
+            id="email"
+            />
         </div>
         <div>
           <label
@@ -28,6 +67,8 @@ const Login = () => {
             for="password"
             >Password</label>
           <input
+            value={password}
+            onChange={(e)=>{setPassword(e.target.value)}}
             class="border rounded-lg px-3 text-center py-2 mt-1 mb-5 text-sm w-full focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
             type="password"
             id="password"
@@ -135,6 +176,9 @@ const Login = () => {
           Login
         </button>
       </div>
+      {
+        loading && <p>Loading</p>
+      }
       <div class="flex items-center justify-between mt-4">
         <span class="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span>
         <Link to={'/register'}
@@ -143,7 +187,7 @@ const Login = () => {
           >Don't have an account? Register</Link>
         <span class="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span>
       </div>
-    </div>
+    </form>
   </div>
 </div>
 

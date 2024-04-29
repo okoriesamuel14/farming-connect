@@ -1,7 +1,48 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import api from '../utils/api';
 
 const Register = () => {
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [DOB, setDOB] = useState("");
+  const [gender, setGender] = useState("");
+  const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState("");
+  const [loading, setLoading] = useState("");
+
+  const Navigate = useNavigate()
+  useEffect(() => {
+    document.title = 'Login';
+    const details = localStorage.getItem('userdetails')
+    console.log(details);
+    if (details) {
+      Navigate('/posts');
+    }
+  }, []);
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    // Password validation
+    if (password.length < 6) {
+      setLoading(false);
+      setErrors("Password must be at least 6 characters long.");
+      return;
+    }
+
+    try {
+      const response = await api.post('api/users', { fullName, username, gender, DOB, email, password });
+      console.log(response);
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      setLoading(false); // Toggle loading state off after request error
+      setErrors(error.response.data);
+    }
+  };
   return (
     <div>
 
@@ -9,7 +50,7 @@ const Register = () => {
   <div
     class="relative px-4 py-10 bg-green-500 mx-8 md:mx-0 shadow rounded-3xl sm:p-10"
   >
-    <div class="max-w-md mx-auto">
+    <form onSubmit={handleSubmit} class="max-w-md mx-auto">
       <div class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
           <label
@@ -17,6 +58,8 @@ const Register = () => {
             for="fullname"
             >Full Name</label>
           <input
+          value={fullName}
+          onChange={(e)=>{setFullName(e.target.value)}}
             class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
             type="text"
             id="fullname"
@@ -28,6 +71,8 @@ const Register = () => {
             for="email"
             >Email</label>
           <input
+          value={email}
+          onChange={(e)=>{setEmail(e.target.value)}}
             class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
             type="email"
             id="email"
@@ -39,6 +84,8 @@ const Register = () => {
             for="username"
             >Username</label>
           <input
+          value={username}
+          onChange={(e)=>{setUsername(e.target.value)}}
             class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
             type="text"
             id="username"
@@ -50,6 +97,8 @@ const Register = () => {
             for="password"
             >Password</label>
           <input
+          value={password}
+          onChange={(e)=>{setPassword(e.target.value)}}
             class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
             type="password"
             id="password"
@@ -63,6 +112,8 @@ const Register = () => {
             for="dob"
             >Date of Birth</label>
           <input
+          value={DOB}
+          onChange={(e)=>{setDOB(e.target.value)}}
             class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
             type="date"
             id="dob"
@@ -76,6 +127,8 @@ const Register = () => {
           <select
             class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
             id="gender"
+            value={gender}
+            onChange={(e)=>{setGender(e.target.value)}}
           >
             <option value="male">Male</option>
             <option value="female">Female</option>
@@ -191,7 +244,7 @@ const Register = () => {
           >have an account? Log in</Link>
         <span class="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span>
       </div>
-    </div>
+    </form>
   </div>
 </div>
 

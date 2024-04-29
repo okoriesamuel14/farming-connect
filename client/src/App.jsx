@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import LandingPage from './pages/LandingPage';
 import About from './pages/About';
 import Updates from './pages/Updates';
+import Posts from './pages/Posts';
 
 
 
@@ -24,6 +25,8 @@ function App () {
        <Route path='/footer' element={<Footer/>}/>
        <Route path='/about' element={<About/>}/>
        <Route path='/updates' element={<Updates/>}/>
+       <Route path='/posts' element={<Posts/>}/>
+
       </Routes>
     </BrowserRouter>
   );
