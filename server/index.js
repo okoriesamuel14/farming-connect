@@ -7,13 +7,20 @@ import cookieParser from 'cookie-parser';
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 import userRoutes from './routes/userRoutes.js';
 import postRoutes from './routes/postRoutes.js';
+import cors from 'cors';
 
 
 const app = express();
 const port = process.env.PORT || 5000;
 connectDB();
 
+app.use(
+  cors({
+      origin: ['http://localhost:5173', 'http://localhost:5174', 'http://localhost:5175'],
+      credentials: true,
 
+  })
+)
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
