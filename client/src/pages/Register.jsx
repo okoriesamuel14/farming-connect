@@ -15,8 +15,7 @@ const Register = () => {
           <label
             class="font-semibold text-sm text-gray-600 pb-1 block"
             for="fullname"
-            >Full Name</label
-          >
+            >Full Name</label>
           <input
             class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
             type="text"
@@ -27,8 +26,7 @@ const Register = () => {
           <label
             class="font-semibold text-sm text-gray-600 pb-1 block"
             for="email"
-            >Email</label
-          >
+            >Email</label>
           <input
             class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
             type="email"
@@ -39,8 +37,7 @@ const Register = () => {
           <label
             class="font-semibold text-sm text-gray-600 pb-1 block"
             for="username"
-            >Username</label
-          >
+            >Username</label>
           <input
             class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
             type="text"
@@ -51,8 +48,7 @@ const Register = () => {
           <label
             class="font-semibold text-sm text-gray-600 pb-1 block"
             for="password"
-            >Password</label
-          >
+            >Password</label>
           <input
             class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
             type="password"
@@ -65,8 +61,7 @@ const Register = () => {
           <label
             class="font-semibold text-sm text-gray-600 pb-1 block"
             for="dob"
-            >Date of Birth</label
-          >
+            >Date of Birth</label>
           <input
             class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
             type="date"
@@ -77,8 +72,7 @@ const Register = () => {
           <label
             class="font-semibold text-sm text-gray-600 pb-1 block"
             for="gender"
-            >Gender</label
-          >
+            >Gender</label>
           <select
             class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
             id="gender"

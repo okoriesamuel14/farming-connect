@@ -15,8 +15,7 @@ const Login = () => {
           <label
             class="font-semibold text-center text-sm text-gray-600 pb-1 block"
             for="username"
-            >Username</label
-          >
+            >Username</label>
           <input
             class="border rounded-lg px-3  text-center py-2 mt-1 mb-5 text-sm w-full focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
             type="text"
@@ -27,8 +26,7 @@ const Login = () => {
           <label
             class="font-semibold text-center text-sm text-gray-600 pb-1 block"
             for="password"
-            >Password</label
-          >
+            >Password</label>
           <input
             class="border rounded-lg px-3 text-center py-2 mt-1 mb-5 text-sm w-full focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
             type="password"
